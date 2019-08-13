@@ -22,7 +22,10 @@ const sassOption = {
 
 const inlineCssOption = {
   applyStyleTags: false,
-  removeStyleTags: false
+  removeStyleTags: false,
+  applyTableAttributes: true,
+  // classやidを取るか、開発時は使用しない方が楽
+  removeHtmlSelectors: true
 };
 
 const browserSyncOption = {
