@@ -1,0 +1,30 @@
+{
+  "name": "html_mail",
+  "version": "1.0.0",
+  "description": "create html mail with gulp",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-inline-css": "^3.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuki-tomioka/html_mail.git"
+  },
+  "keywords": [
+    "gulp",
+    "htmlmail"
+  ],
+  "author": "Yuki Tomioka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuki-tomioka/html_mail/issues"
+  },
+  "homepage": "https://github.com/yuki-tomioka/html_mail#readme"
+}
