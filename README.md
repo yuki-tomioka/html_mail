@@ -9,7 +9,7 @@ SASSをコンパイルしてCSSにした後、CSSをインラインに変換し�
 ```shell
 $ git clone https://github.com/yuki-tomioka/html_mail.git
 $ cd html_mail
-$ npm i
+$ npm ci
 $ npx gulp
 ```
 
