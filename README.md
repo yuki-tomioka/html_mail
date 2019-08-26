@@ -17,7 +17,6 @@ $ npx gulp mail
 ```
 
 ### メール送信のための設定方法
-gulpfile.jsのsmtpInfoを下記のように設定する。
 
 - Gmailを使って送信する場合
 
