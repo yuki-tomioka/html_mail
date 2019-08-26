@@ -20,16 +20,18 @@ $ npx gulp mail
 gulpfile.jsのsmtpInfoを下記のように設定する。
 
 - Gmailを使って送信する場合
-```js
-const smtpInfo = {
-  auth: {
-    user: 'your-address@gmail.com',
-    pass: 'your-password'
-  },
-  host: 'smtp.gmail.com',
-  secureConnection: true,
-  port: '465'
-};
+
+下記のような.envを作成する
+
+```dotenv
+# 送信先（複数はカンマ区切り、スペースを入れない）
+mailTo=example@gmail.com,example_02@gmail.com
+
+# 送信元
+smtpUser=example_03@gmail.com
+smtpPass=example_03_pass
+smtpHost=smtp.gmail.com
+smtpPort=465
 ```
 ログインエラー対応  
 Gmailを確認すると「重大なセキュリティ通知」としてログインをブロックしましたというメールが届いている場合、[安全性の低いアプリのアクセス
@@ -39,6 +41,7 @@ Gmailを確認すると「重大なセキュリティ通知」としてログイ
 ## 主なプラグイン
 - [gulp-inline-css](https://www.npmjs.com/package/gulp-inline-css)
 - [gulp-mail](https://www.npmjs.com/package/gulp-mail)
+- [node-env-file](https://www.npmjs.com/package/node-env-file)
 
 ## 作成環境
 - gulp
