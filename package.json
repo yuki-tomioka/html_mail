@@ -10,7 +10,8 @@
     "gulp-inline-css": "^3.3.2"
   },
   "devDependencies": {
-    "gulp-mail": "^0.3.0"
+    "gulp-mail": "^0.3.0",
+    "node-env-file": "^0.1.8"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
