@@ -7,6 +7,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const inlineCss = require('gulp-inline-css');
 const browserSync = require('browser-sync').create();
+const mail = require('gulp-mail');
 
 const src = './src';
 const dist = './dist';
@@ -32,6 +33,15 @@ const browserSyncOption = {
   server: dist
 };
 
+const smtpInfo = {
+  auth: {
+    user: 'your-address@gmail.com',
+    pass: 'your-password'
+  },
+  host: 'smtp.gmail.com',
+  secureConnection: true,
+  port: '465'
+};
 
 /**
  * ------------------------------------------------------------
@@ -55,6 +65,19 @@ gulp.task('inlineCss', () => {
 gulp.task('serve', (done) => {
   browserSync.init(browserSyncOption);
   done();
+});
+
+gulp.task('mail', () => {
+  return gulp
+    .src(dist + '/index.html')
+    .pipe(mail({
+      subject: 'html mail test',
+      to: [
+        'example@gmail.com'
+      ],
+      from: 'your-address@gmail.com',  // smtpInfoで設定したアドレス
+      smtp: smtpInfo
+    }));
 });
 
 /**
