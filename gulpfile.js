@@ -29,7 +29,7 @@ const inlineCssOption = {
 };
 
 const browserSyncOption = {
-  server: './dist'
+  server: dist
 };
 
 
