@@ -9,9 +9,10 @@ const inlineCss = require('gulp-inline-css');
 const browserSync = require('browser-sync').create();
 const mail = require('gulp-mail');
 const env = require('node-env-file');
+const minimist = require('minimist');
 
-const src = './src';
-const dist = './dist';
+const src = './src/';
+const dist = './dist/';
 
 env('.env');
 const mailTo = process.env.mailTo;
@@ -51,6 +52,22 @@ const smtpInfo = {
   port: smtpPort
 };
 
+const fileOptions = minimist(process.argv.slice(2), {
+  string: 'file',
+  default: {
+    file: 'index'
+  }
+});
+const file = fileOptions.file;
+
+const subjectOptions = minimist(process.argv.slice(2), {
+  string: 'subject',
+  default: {
+    subject: 'html mail test'
+  }
+});
+const subject = subjectOptions.subject;
+
 /**
  * ------------------------------------------------------------
  * タスク
@@ -58,14 +75,14 @@ const smtpInfo = {
  */
 gulp.task('sass', () => {
   return gulp
-    .src(src + '/sass/**/*.scss')
+    .src(src + 'sass/**/*.scss')
     .pipe(sass(sassOption))
-    .pipe(gulp.dest(src + '/css/'));
+    .pipe(gulp.dest(src + 'css/'));
 });
 
 gulp.task('inlineCss', () => {
   return gulp
-    .src(src + '/**/*.html')
+    .src(src + '**/*.html')
     .pipe(inlineCss(inlineCssOption))
     .pipe(gulp.dest(dist))
 });
@@ -77,9 +94,9 @@ gulp.task('serve', (done) => {
 
 gulp.task('mail', () => {
   return gulp
-    .src(dist + '/index.html')
+    .src(dist + file + '.html')
     .pipe(mail({
-      subject: 'html mail test',
+      subject: subject,
       to: [
         mailTo
       ],
@@ -98,9 +115,9 @@ gulp.task('watch', (done) => {
     browserSync.reload();
     done();
   };
-  gulp.watch(src + '/**/*.scss', gulp.series('sass', 'inlineCss'));
-  gulp.watch(src + '/**/*.html', gulp.task('inlineCss'));
-  gulp.watch(dist + '/*', browserReload);
+  gulp.watch(src + '**/*.scss', gulp.series('sass', 'inlineCss'));
+  gulp.watch(src + '**/*.html', gulp.task('inlineCss'));
+  gulp.watch(dist + '*', browserReload);
 });
 
 

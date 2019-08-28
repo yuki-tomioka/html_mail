@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "gulp-mail": "^0.3.0",
+    "minimist": "^1.2.0",
     "node-env-file": "^0.1.8"
   },
   "scripts": {
