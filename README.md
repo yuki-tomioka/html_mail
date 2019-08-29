@@ -63,10 +63,11 @@ $npx gulp mail --file test
 $npx gulp mail --subject test
 ```
 
-## 主なプラグイン
+## 参照
 - [gulp-inline-css](https://www.npmjs.com/package/gulp-inline-css)
 - [gulp-mail](https://www.npmjs.com/package/gulp-mail)
 - [node-env-file](https://www.npmjs.com/package/node-env-file)
+- [normalize.email.css](https://github.com/dudeonthehorse/normalize.email.css)
 
 ## 作成環境
 - gulp
