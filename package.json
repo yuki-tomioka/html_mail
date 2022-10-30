@@ -4,7 +4,7 @@
   "description": "create html mail with gulp",
   "main": "gulpfile.js",
   "dependencies": {
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.27.10",
     "gulp": "^4.0.2",
     "gulp-sass": "^4.0.2",
     "gulp-inline-css": "^3.3.2"
